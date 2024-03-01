@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/MarcosOliveir4/api-ghibli-collector/db"
+	"github.com/MarcosOliveir4/api-ghibli-collector/handlers"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("API Ghigli Collector")
+	r := gin.Default()
+
+	db := db.ConnectDB()
+	defer db.Close()
+
+	handlers.SetupRoutes(r, db)
+
+	fmt.Println("Conexão com o banco de dados SQLite estabelecida com sucesso!")
+	r.Run(":8080")
 }
