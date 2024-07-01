@@ -1,0 +1,111 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/testes": {
+            "get": {
+                "description": "List all testes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "testes"
+                ],
+                "summary": "List all testes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/teste.Teste"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create a teste",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "testes"
+                ],
+                "summary": "Create a teste",
+                "parameters": [
+                    {
+                        "description": "Teste",
+                        "name": "teste",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/teste.Teste"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/teste.Teste"
+                        }
+                    }
+                }
+            }
+        },
+        "/testes/{id}": {
+            "get": {
+                "description": "Find a teste by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "testes"
+                ],
+                "summary": "Find a teste by ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Teste ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/teste.Teste"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "teste.Teste": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+definitions:
+  teste.Teste:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /testes:
+    get:
+      consumes:
+      - application/json
+      description: List all testes
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/teste.Teste'
+            type: array
+      summary: List all testes
+      tags:
+      - testes
+    post:
+      consumes:
+      - application/json
+      description: Create a teste
+      parameters:
+      - description: Teste
+        in: body
+        name: teste
+        required: true
+        schema:
+          $ref: '#/definitions/teste.Teste'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/teste.Teste'
+      summary: Create a teste
+      tags:
+      - testes
+  /testes/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Find a teste by ID
+      parameters:
+      - description: Teste ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/teste.Teste'
+      summary: Find a teste by ID
+      tags:
+      - testes
+swagger: "2.0"
