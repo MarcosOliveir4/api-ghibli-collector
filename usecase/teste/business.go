@@ -1,10 +1,10 @@
 package teste
 
 import (
+	"api-ghibli-collector/database"
+	domain "api-ghibli-collector/domain/teste"
+	"api-ghibli-collector/infraestructure/repository/teste"
 	"context"
-	"template-golang/database"
-	domain "template-golang/domain/teste"
-	"template-golang/infraestructure/repository/teste"
 )
 
 func Listar(ctx context.Context) []domain.Teste {

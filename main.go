@@ -1,13 +1,14 @@
 package main
 
 import (
+	"api-ghibli-collector/database"
+	"api-ghibli-collector/docs"
+	"api-ghibli-collector/handler/films"
+	"api-ghibli-collector/handler/teste"
+	"api-ghibli-collector/middleware"
 	"context"
 	"fmt"
 	"log"
-	"template-golang/database"
-	"template-golang/docs"
-	"template-golang/handler/teste"
-	"template-golang/middleware"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -36,6 +37,7 @@ func main() {
 	)
 
 	teste.Router(v1)
+	films.Router(v1)
 	setupSwagDocs()
 	v1.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	if err := r.Run(":8080"); err != nil {

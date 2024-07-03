@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"template-golang/database"
+	"api-ghibli-collector/database"
 
 	"github.com/gin-gonic/gin"
 )

@@ -34,9 +34,17 @@ func (d *DB) CreateTables(pool ConnectionsPool, ctx context.Context) {
 	}
 
 	sqlStmt := `
-	CREATE TABLE IF NOT EXISTS test (
-        id INTEGER NOT NULL PRIMARY KEY,
-        name TEXT
+	CREATE TABLE IF NOT EXISTS films (
+        id TEXT PRIMARY KEY,
+        title TEXT NOT NULL,
+        original_title_romanised TEXT NOT NULL,
+        image TEXT NOT NULL,
+        description TEXT NOT NULL,
+        director TEXT NOT NULL,
+        producer TEXT NOT NULL,
+        release_date INTEGER NOT NULL,
+        running_time INTEGER NOT NULL,
+        rt_score INTEGER NOT NULL
     );
 	`
 	_, err = tx.Exec(sqlStmt)

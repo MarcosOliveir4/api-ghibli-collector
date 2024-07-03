@@ -1,11 +1,11 @@
 package teste
 
 import (
+	"api-ghibli-collector/usecase/teste"
 	"net/http"
 	"strconv"
-	"template-golang/usecase/teste"
 
-	domain "template-golang/domain/teste"
+	domain "api-ghibli-collector/domain/teste"
 
 	"github.com/gin-gonic/gin"
 )

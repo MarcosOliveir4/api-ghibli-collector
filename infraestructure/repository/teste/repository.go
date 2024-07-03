@@ -1,8 +1,8 @@
 package teste
 
 import (
-	"template-golang/database"
-	domain "template-golang/domain/teste"
+	"api-ghibli-collector/database"
+	domain "api-ghibli-collector/domain/teste"
 )
 
 func NewRepo(tx database.Transaction) domain.RepoTestes {
