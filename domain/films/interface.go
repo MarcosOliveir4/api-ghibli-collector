@@ -1,5 +1,6 @@
 package films
 
 type RepoFilms interface {
-	List() ([]Film, error)
+	List(filter FilmFilter) ([]Film, error)
+	ListTotal(filter FilmFilter) (int, error)
 }

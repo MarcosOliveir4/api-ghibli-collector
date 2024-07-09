@@ -14,3 +14,13 @@ type Film struct {
 	RunningTime            int64     `json:"running_time"`
 	RtScore                int64     `json:"rt_score"`
 }
+
+type FilmFilter struct {
+	Title       string `form:"title"`
+	Director    string `form:"director"`
+	Limit       int    `form:"limit"`
+	Offset      int    `form:"offset"`
+	Total       bool   `form:"total"`
+	RtScore     int    `form:"rt_score"`
+	ReleaseDate int64  `form:"release_date"`
+}
